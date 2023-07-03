@@ -87,9 +87,6 @@ async function lineByLine(location) {
                 console.log("File written successfully")
             }
         });
-        //console.log(data.name)
-        return { name: data.name, location: data.location }
-
 
     } catch (err) {
         console.log(err);

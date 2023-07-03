@@ -10,9 +10,6 @@ const locationData = [];
     for (const location of locations) {
         await getDetails(location);
     }
-    // locations.forEach(location => {
-    //     getDetails(location);
-    // });
 
     saveFile();
 
@@ -38,8 +35,7 @@ async function getDetails(location) {
         });
 
         let lineNumber = 1;
-        // Need a way to assess where the data starts and sanitise location data
-        // For now I've done this manually
+
         rl.on('line', line => {
             if (lineNumber === 1) {
                 data.slug = line.replace(/\s/g, "");

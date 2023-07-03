@@ -1,6 +1,5 @@
 Braemar
-Location: 315200E 791400N, 339 metres amsl (1959 to Apr 2005), 
-& 315200E 791900N, Lat 57.006 Lon -3.396, 327 metres amsl (Aug 2005 onwards)
+Location: 315200E 791400N, 339 metres amsl (1959 to Apr 2005), & 315200E 791900N, Lat 57.006 Lon -3.396, 327 metres amsl (Aug 2005 onwards)
 Estimated data is marked with a * after the value.
 Missing data (more than 2 days missing in month) is marked by  ---.
 Sunshine data taken from an automatic Kipp & Zonen sensor marked with a #, otherwise sunshine data taken from a Campbell Stokes recorder.
