@@ -16,7 +16,8 @@ async function lineByLine(location) {
         slug: "",
         name: "",
         location: {
-            latLong: "",
+            lat: 0,
+            long: 0,
             altitude: 0
         },
         weatherData: []
@@ -30,7 +31,8 @@ async function lineByLine(location) {
         });
 
         let lineNumber = 1;
-
+        // Need a way to assess where the data starts and sanitise location data
+        // For now I've done this manually
         rl.on('line', line => {
             if (lineNumber === 1) {
                 data.slug = line.replace(/\s/g, "");
@@ -39,11 +41,16 @@ async function lineByLine(location) {
 
             if (lineNumber === 2) {
                 var str = line.split(',');
-                data.location.latLong = str[1];
+
+                var latLong = str[1];
+                latLong = latLong.trim().split(" ");
+
+                data.location.lat = parseFloat(latLong[1]);
+                data.location.long = parseFloat(latLong[3]);
                 data.location.altitude = parseInt(str[2]);
             }
 
-            if (lineNumber > 20)
+            if (lineNumber > 100) // Only first 100 lines at present
                 return;
 
             if (lineNumber > 7) {
@@ -80,6 +87,8 @@ async function lineByLine(location) {
                 console.log("File written successfully")
             }
         });
+        //console.log(data.name)
+        return { name: data.name, location: data.location }
 
 
     } catch (err) {

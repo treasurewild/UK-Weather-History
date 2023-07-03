@@ -1,6 +1,5 @@
 Lowestoft / Lowestoft Monckton Ave from Sept 2007
-Location 654300E 294600N 25m amsl to July 2007 
-& from Sept 2007 653000E 293800N, Lat 52.483 Lon 1.727, 18m amsl
+Location 654300E 294600N 25m amsl to July 2007 & from Sept 2007 653000E 293800N, Lat 52.483 Lon 1.727, 18m amsl
 Estimated data is marked with a * after the value.
 Missing data (more than 2 days missing in month) is marked by  ---.
 Sunshine data taken from an automatic Kipp & Zonen sensor marked with a #, otherwise sunshine data taken from a Campbell Stokes recorder.

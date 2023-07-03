@@ -1,6 +1,5 @@
 Nairn   there is a site change in 1998
-Location before 1998 286900E 856800N 8m amsl  
-after 1998 291200E 857300N, Lat 57.593 Lon -3.821, 23 m amsl
+Location before 1998 286900E 856800N 8m amsl after 1998 291200E 857300N, Lat 57.593 Lon -3.821, 23 m amsl
 Estimated data is marked with a * after the value.
 Missing data (more than 2 days missing in month) is marked by  ---.
 Sunshine data taken from an automatic Kipp & Zonen sensor marked with a #, otherwise sunshine data taken from a Campbell Stokes recorder.
