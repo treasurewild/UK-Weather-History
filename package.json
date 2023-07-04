@@ -19,6 +19,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"csv": "^6.3.1"
+		"csv": "^6.3.1",
+		"layercake": "^7.6.0"
 	}
 }

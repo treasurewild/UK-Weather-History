@@ -4,7 +4,7 @@
 
 <slot />
 
-<p>&copy; Wil Treasure 2023</p>
+<!-- <p>&copy; Wil Treasure 2023</p> -->
 
 <style>
     nav {

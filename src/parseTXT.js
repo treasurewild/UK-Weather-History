@@ -55,13 +55,17 @@ async function lineByLine(location) {
 
             if (lineNumber > 7) {
                 var temp = line.trim();
-                temp = temp.replace(/#/g, "").replace(/---/g, "");
+                temp = temp.replace(/#/g, "").replace(/---/g, "0");
 
                 temp = temp.replace(/\s{1,}/g, ",")
 
                 var tempArr = temp.split(',')
 
+                if (tempArr[1].length < 2)
+                    tempArr[1] = "0" + tempArr[1];
+
                 var tempObj = {
+                    date: `${tempArr[0]}${tempArr[1]}`,
                     year: parseInt(tempArr[0]),
                     month: parseInt(tempArr[1]),
                     tmax: parseFloat(tempArr[2]),
