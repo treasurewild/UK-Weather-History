@@ -1,11 +1,9 @@
-import { locationData } from '../../../data/locationData.js';
+import { allData } from '../../../data/allData.js';
 
 export function load({ params }) {
-    const locations = JSON.parse(locationData);
+    const parseData = JSON.parse(allData);
 
-    const data = locations.find(location => location.slug === params.slug);
+    const data = parseData.find(location => location.data.slug === params.slug).data;
 
-    return {
-        data
-    };
+    return data;
 }

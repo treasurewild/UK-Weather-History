@@ -26,7 +26,7 @@ async function lineByLine(location) {
     try {
 
         const rl = readline.createInterface({
-            input: fs.createReadStream(`./src/data/txt/${location}data.txt`),
+            input: fs.createReadStream(`./data/txt/${location}data.txt`),
             crlfDelay: Infinity
         });
 
@@ -65,7 +65,7 @@ async function lineByLine(location) {
                     tempArr[1] = "0" + tempArr[1];
 
                 var tempObj = {
-                    date: `${tempArr[0]}${tempArr[1]}`,
+                    date: `${tempArr[0]}-${tempArr[1]}`,
                     year: parseInt(tempArr[0]),
                     month: parseInt(tempArr[1]),
                     tmax: parseFloat(tempArr[2]),
@@ -84,7 +84,7 @@ async function lineByLine(location) {
         await events.once(rl, 'close');
         console.log('Reading file line by line with readline done.');
 
-        await fs.writeFile(`./src/data/${location}.json`, JSON.stringify(data), err => {
+        await fs.writeFile(`./data/${location}.json`, JSON.stringify(data), err => {
             if (err)
                 console.log(err)
             else {

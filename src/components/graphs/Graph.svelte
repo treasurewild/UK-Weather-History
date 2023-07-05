@@ -10,16 +10,42 @@
     // This example loads csv data as json using @rollup/plugin-dsv
     //import locationData from "../../data/aberporth.json";
     //let data = locationData.weatherData;
-    console.log(data);
 
     const xKey = "date";
     let yKey = "tmax";
 
-    data.forEach((d) => {
-        d[yKey] = +d[yKey];
-    });
+    // data.forEach((d) => {
+    //     d[yKey] = +d[yKey];
+    // });
 
-    console.log(yKey);
+    // update the displayData object every time the radio button option is changed
+
+    function fillDates() {
+        const startDate = Date.parse(data[0].date);
+        const endDate = Date.parse(data[data.length - 1].date);
+        const dateRange = endDate - startDate;
+
+        const dataRange = [...data];
+
+        dataRange.forEach((data) => {
+            let date = new Date(data.date);
+            console.log(date.toDateString());
+
+            data.date = date;
+        });
+
+        return dataRange;
+    }
+
+    const displayData = fillDates();
+
+    // $: fillData = () => {
+    //     for (let i = 0; i < data.length; i++) {
+    //         displayData[i][yKey] = data[yKey];
+    //     }
+    // };
+
+    $: console.log(displayData);
 </script>
 
 <div class="chart-container">
@@ -72,7 +98,7 @@
         y={yKey}
         yNice={4}
         yDomain={[null, null]}
-        {data}
+        data={displayData}
     >
         <Svg>
             <AxisX />
