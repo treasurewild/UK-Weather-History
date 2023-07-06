@@ -2,6 +2,7 @@
     export let data;
     import { LayerCake, Svg } from "layercake";
     import Slider from "@bulatdashiev/svelte-slider";
+    import { timeParse, timeFormat } from "d3-time-format";
 
     import Line from "./Line.svelte";
     import Area from "./Area.svelte";
@@ -11,6 +12,8 @@
     // This example loads csv data as json using @rollup/plugin-dsv
     //import locationData from "../../data/aberporth.json";
     //let data = locationData.weatherData;
+
+    const formatTickX = timeFormat("%B %Y");
 
     const xKey = "date";
     let yKey = "tmax";
@@ -118,7 +121,7 @@
         data={displayData}
     >
         <Svg>
-            <AxisX />
+            <AxisX formatTick={formatTickX} tickMarks={true} ticks={10} />
             <AxisY ticks={4} />
             <Line />
             <Area />
