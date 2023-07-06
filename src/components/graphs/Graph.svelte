@@ -2,16 +2,12 @@
     export let data;
     import { LayerCake, Svg } from "layercake";
     import Slider from "@bulatdashiev/svelte-slider";
-    import { timeParse, timeFormat } from "d3-time-format";
+    import { timeFormat } from "d3-time-format";
 
     import Line from "./Line.svelte";
     import Area from "./Area.svelte";
     import AxisX from "./AxisX.svelte";
     import AxisY from "./AxisY.svelte";
-
-    // This example loads csv data as json using @rollup/plugin-dsv
-    //import locationData from "../../data/aberporth.json";
-    //let data = locationData.weatherData;
 
     const formatTickX = timeFormat("%B %Y");
 
@@ -21,10 +17,6 @@
     let range = [0, data.length - 1];
     let startDate = data[range[0]].date;
     let endDate = data[range[1]].date;
-
-    // data.forEach((d) => {
-    //     d[yKey] = +d[yKey];
-    // });
 
     // update the displayData object every time the radio button option is changed
 
@@ -147,7 +139,7 @@
 
     .slider {
         padding: 10px;
-        width: 40rem;
-        background-color: gainsboro;
+        margin: 5px;
+        background-color: #f1f8fc;
     }
 </style>

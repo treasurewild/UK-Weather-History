@@ -9,8 +9,7 @@
 
 <style>
     nav {
-        background-color: #6e6666;
-        //vertical-align: center;
+        background-color: darkblue;
         padding: 10px;
         display: flex;
     }

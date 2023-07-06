@@ -4,16 +4,16 @@
     import Map from "../../../components/Map.svelte";
 </script>
 
-<div class="page">
+<div>
     <div class="location-details">
         <div class="details">
             <h2>{data.name}</h2>
-            <h3>
+            <h4>
                 Altitude: {data.location.altitude}m amsl
-            </h3>
-            <h3>
+            </h4>
+            <h4>
                 Latitude: {data.location.lat}, Longitude: {data.location.long}
-            </h3>
+            </h4>
         </div>
         <Map location={data.location} />
     </div>
@@ -21,12 +21,8 @@
 </div>
 
 <style>
-    .page {
-        padding: 20px;
-    }
-
     .details {
-        background-color: lightcoral;
+        background-color: #e3f2ff;
         padding: 10px;
         margin: 5px;
         border-radius: 5px;

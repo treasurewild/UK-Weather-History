@@ -1,5 +1,6 @@
 <script>
     export let data;
+    import Location from "../components/Location.svelte";
 </script>
 
 <div class="page">
@@ -9,13 +10,19 @@
         the UK.<br />Teachers can also print lesson plans and worksheets for
         class projects using time-series graphs.
     </p>
-    {#each data.locations as { slug, name }}
-        <li><a href="/locationdata/{slug}">{name}</a></li>
-    {/each}
+    <div class="locations">
+        {#each data.locations as { slug, name }}
+            <Location href="/locationdata/{slug}" {name} />
+        {/each}
+    </div>
 </div>
 
 <style>
     .page {
         padding: 20px;
+    }
+    .locations {
+        display: flex;
+        flex-wrap: wrap;
     }
 </style>
