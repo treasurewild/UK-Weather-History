@@ -1,6 +1,7 @@
 <script>
     export let data;
     import { LayerCake, Svg } from "layercake";
+    import Slider from "@bulatdashiev/svelte-slider";
 
     import Line from "./Line.svelte";
     import Area from "./Area.svelte";
@@ -14,6 +15,10 @@
     const xKey = "date";
     let yKey = "tmax";
 
+    let range = [0, data.length - 1];
+    let startDate = data[range[0]].date;
+    let endDate = data[range[1]].date;
+
     // data.forEach((d) => {
     //     d[yKey] = +d[yKey];
     // });
@@ -21,15 +26,14 @@
     // update the displayData object every time the radio button option is changed
 
     function fillDates() {
-        const startDate = Date.parse(data[0].date);
-        const endDate = Date.parse(data[data.length - 1].date);
-        const dateRange = endDate - startDate;
+        //const startDate = Date.parse(data[range[0]].date);
+        //const endDate = Date.parse(data[range[1]].date);
+        // const dateRange = endDate - startDate;
 
-        const dataRange = [...data];
+        const dataRange = data.slice(range[0], range[1] + 1);
 
         dataRange.forEach((data) => {
             let date = new Date(data.date);
-            console.log(date.toDateString());
 
             data.date = date;
         });
@@ -37,18 +41,33 @@
         return dataRange;
     }
 
-    const displayData = fillDates();
+    const options = {
+        year: "numeric",
+        month: "long",
+    };
 
-    // $: fillData = () => {
-    //     for (let i = 0; i < data.length; i++) {
-    //         displayData[i][yKey] = data[yKey];
-    //     }
-    // };
+    function parseDate(date) {
+        const parsedDate = new Date(date);
+
+        return parsedDate.toLocaleDateString("en-GB", options);
+    }
+
+    let displayData = fillDates();
+
+    function refreshGraph() {
+        displayData = fillDates();
+    }
 
     $: console.log(displayData);
 </script>
 
 <div class="chart-container">
+    <div class="slider">
+        Start Date: {parseDate(data[range[0]].date)}<br />
+        End Date: {parseDate(data[range[1]].date)}
+        <Slider min="0" max={data.length - 1} bind:value={range} range />
+        <button on:click={refreshGraph}>Refresh Graph</button>
+    </div>
     <div class="selection">
         <input
             type="radio"
@@ -123,5 +142,11 @@
 
     .selection {
         padding: 10px;
+    }
+
+    .slider {
+        padding: 10px;
+        width: 40rem;
+        background-color: gainsboro;
     }
 </style>
