@@ -50,8 +50,8 @@ async function lineByLine(location) {
                 data.location.altitude = parseInt(str[2]);
             }
 
-            if (lineNumber > 100) // Only first 100 lines at present
-                return;
+            // if (lineNumber > 100) // Only first 100 lines at present
+            //     return;
 
             if (lineNumber > 7) {
                 var temp = line.trim();

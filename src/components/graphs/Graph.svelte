@@ -57,8 +57,6 @@
     function refreshGraph() {
         displayData = fillDates();
     }
-
-    $: console.log(displayData);
 </script>
 
 <div class="chart-container">

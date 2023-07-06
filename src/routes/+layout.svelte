@@ -1,4 +1,5 @@
 <nav>
+    <img alt="favicon" src="../favicon.png" />
     <a href="/">Home</a>
 </nav>
 
@@ -9,14 +10,20 @@
 <style>
     nav {
         background-color: #6e6666;
-        vertical-align: center;
-        padding: 20px 10px;
+        //vertical-align: center;
+        padding: 10px;
+        display: flex;
     }
 
-    a {
+    nav a {
         color: white;
         text-decoration: none;
         padding: 10px;
         font-size: larger;
+        margin: auto 0;
+    }
+
+    nav img {
+        margin: auto 0;
     }
 </style>
